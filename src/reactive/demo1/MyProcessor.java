@@ -23,6 +23,7 @@ public class MyProcessor extends SubmissionPublisher<Integer> implements Flow.Pr
     @Override
     public void onNext(Integer integer) {
         // 过滤掉小于0的, 然后发布出去
+        //中间可以处理加工一些数据
         this.submit(integer);
         // 处理完调用request再请求一个数据
         this.subscription.request(1);
